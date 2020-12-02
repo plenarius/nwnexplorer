@@ -64,6 +64,7 @@ static char THIS_FILE[] = __FILE__;
 
 extern CDataCache g_sResourceCache;
 extern CString g_strNwnDirectory;
+extern CString g_strUserDirectory;
 extern CMainWnd *g_pMainWnd;
 
 //-----------------------------------------------------------------------------
@@ -78,7 +79,7 @@ extern CMainWnd *g_pMainWnd;
 //
 //-----------------------------------------------------------------------------
 
-CDataSourceDir::CDataSourceDir (UINT nID, LPCTSTR pszDir, LPCTSTR pszMask, bool fModules) 
+CDataSourceDir::CDataSourceDir (UINT nID, LPCTSTR pszDir, LPCTSTR pszMask, bool fModules, bool fUserDir)
 {
 
     //
@@ -89,6 +90,7 @@ CDataSourceDir::CDataSourceDir (UINT nID, LPCTSTR pszDir, LPCTSTR pszMask, bool 
     m_strDir   = pszDir;
     m_strMask  = pszMask;
     m_fModules = fModules;
+    m_fUserDir = fUserDir;
 
     //
     // Initialize other flags
@@ -430,7 +432,7 @@ void CDataSourceDir::GetResourceName (DataElement *pElement,
 CData *CDataSourceDir::LoadRes (DataElement *pElement)
 {
     const char *pszFileName = m_astrFileNames [pElement ->ulIndex1];
-    CString str (g_strNwnDirectory + m_strDir + pszFileName);
+    CString str(m_fUserDir ? g_strUserDirectory + m_strDir + pszFileName : g_strNwnDirectory + m_strDir + pszFileName);
     return g_sResourceCache .LoadRes (str);
 }
 
@@ -558,7 +560,7 @@ void CDataSourceDir::Initialize ()
     // Initiate the find
     //
 
-    CString strDir (g_strNwnDirectory + m_strDir);
+    CString strDir(m_fUserDir ? g_strUserDirectory + m_strDir : g_strNwnDirectory + m_strDir);
     CString strSearch (strDir + m_strMask);
     struct _finddata_t sFind;
     intptr_t id = _findfirst (strSearch, &sFind);

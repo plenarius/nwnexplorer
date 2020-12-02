@@ -342,14 +342,16 @@ BOOL CNwnOptionsPage::OnKillActive ()
     if (fp == NULL)
         fp = _tfopen (str + "data\\dialog.tlk", "rb");
     if (fp == NULL)
+        fp = _tfopen (str + "lang\\en\\data\\dialog.tlk", "rb");
+    if (fp == NULL)
     {
         str .Format (IDS_ERR_INV_DIRECTORY);
         ::MessageBox (m_hWnd, str, g_szAppName, MB_OK);
-        return FALSE;
+        return TRUE;
     }
     else
         fclose (fp);
-    return TRUE;
+    return FALSE;
 }
 
 

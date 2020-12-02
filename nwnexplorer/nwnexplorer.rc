@@ -254,7 +254,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_CAPTION | WS_SYSMENU
 CAPTION "About"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "NWN Explorer Version 1.8.0",IDC_STATIC,7,6,216,8,SS_NOPREFIX
+    LTEXT           "NWN Explorer Version 1.8.3",IDC_STATIC,7,6,216,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2002-2009, Edward T. Smith and Doug Swarin",IDC_STATIC,7,17,216,8
     DEFPUSHBUTTON   "OK",IDOK,86,125,50,14
     LTEXT           "Some images Copyright (C) 2002, Bioware",IDC_STATIC,7,40,216,8
@@ -263,6 +263,7 @@ BEGIN
     LTEXT           "1.5 support for DDS textures and NWN 1.69 sponsored by:",IDC_STATIC,7,75,191,8
     LTEXT           "  - Higher Ground (http://highergroundpoa.proboards3.com)",IDC_STATIC,7,85,194,8
     LTEXT           "  - Community Expansion Pack (http://cepteam.dyndns.org)",IDC_STATIC,7,95,192,8
+    LTEXT           "NWN:EE support && updates (C) 2018-2020, virusman",IDC_STATIC,7,26,216,8
 END
 
 IDD_TBCUSTOMIZE DIALOGEX 0, 0, 357, 33
@@ -460,6 +461,10 @@ BEGIN
         BOTTOMMARGIN, 139
     END
 
+    IDD_TBCUSTOMIZE, DIALOG
+    BEGIN
+    END
+
     IDD_SOUND, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -650,6 +655,16 @@ BEGIN
     IDS_XP2_PATCH_KEY       "NWN:HotU Patch Data"
     IDS_XP3_KEY             "NWN:1.69 Patch Data"
     IDS_XP3_PATCH_KEY       "NWN:1.69 Patch Data (UNUSED)"
+    IDS_LANG_KEY            "NWN Language Data"
+    IDS_INSTALL_KEY         "NWN Install Data"
+    IDS_INSTALL_HAK         "NWN Install Hak Files"
+    IDS_INSTALL_OVERRIDE    "NWN Install Overrides"
+    IDS_INSTALL_AMBIENT     "NWN Install Ambient Sounds"
+    IDS_INSTALL_DM_VAULT    "NWN Install DM Vault"
+    IDS_INSTALL_LOCAL_VAULT "NWN Install Local Vault"
+    IDS_INSTALL_MUSIC       "NWN Install Music"
+    IDS_INSTALL_MODULES     "NWN Install Modules"
+    IDS_DEVELOPMENT         "NWN Development"
 END
 
 STRINGTABLE
